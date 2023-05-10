@@ -23,16 +23,15 @@ struct ContentView: View {
                     .padding()
                     .background(
                         Capsule()
-                            .stroke(Color.white, lineWidth: 2)
+                            .stroke(Color.white, lineWidth: 1)
                             .background(
                                 Capsule()
                                     .fill(Color.blue)
-                                    .scaleEffect(isPulsating ? 1.05 : 1.0)
-                                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true))
                             )
                     )
-                    .scaleEffect(isPulsating ? 1.1 : 1.0)
-                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true))
+                    .scaleEffect(isPulsating ? 1.05 : 1.0)
+                    .animation(.easeInOut(duration: 0.5).repeatForever(),
+                               value: isPulsating)
             }
             .onAppear {
                 isPulsating = true
